@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import { COLORS, WEIGHTS } from '../../constants';
+import { BREAKPOINTS, WEIGHTS } from '../../constants';
 
 const Sidebar = () => {
   return (
@@ -23,18 +23,22 @@ const Sidebar = () => {
   );
 };
 
-const Wrapper = styled.aside``;
+const Wrapper = styled.aside`
+  @media (max-width: ${BREAKPOINTS.tabletMax / 16}rem) {
+    display: none;
+  }
+`;
 
 const Link = styled.a`
   display: block;
   text-decoration: none;
   font-weight: ${WEIGHTS.medium};
-  color: ${COLORS.gray[900]};
+  color: var(--color-gray-900);
   line-height: 2;
 `;
 
 const ActiveLink = styled(Link)`
-  color: ${COLORS.primary};
+  color: var(--color-white);
 `;
 
 export default Sidebar;
